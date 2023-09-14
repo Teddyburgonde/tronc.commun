@@ -1,0 +1,21 @@
+ft_memset 
+
+#include <stdio.h>
+//#include <string.h>
+
+int	main(int argc, char **argv)
+{
+	unsigned int	n;
+	char	letter;
+
+	letter = 'Z';
+	n = 3;
+
+	if (argc == 2)
+	{
+		ft_memset(argv[1], letter, n);
+		printf("%s", argv[1]);
+	}
+	//memset(argv[1], letter, 3);
+	//printf("%s", argv[1]);
+}
