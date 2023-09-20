@@ -74,4 +74,22 @@ int	main(int argc, char **argv)
 	}
 }
 
+ft_memmove
+
+#include <string.h>
+#include <stdio.h>
+int	main(int argc, char **argv)
+{
+	if (argc == 3)
+	{
+		memmove(argv[1], argv[2], 3);
+		printf("%s", argv[1]);
+	}
+}
+
+
+
+
+
+
 
