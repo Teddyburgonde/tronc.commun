@@ -63,17 +63,15 @@ int	main(void)
 	printf("%s", tab);
 }
 
-ft_memcpy 
-
+ft_memcpy
 #include <stdio.h>
-#include <string.h>
-int	main(void)
+int	main(int argc, char **argv)
 {
-	char	dest[] = "bonjour";
-	char	src[] = "salut";
-	//memcpy(dest, src, 3);
-	ft_memcpy(dest, src, 3);
-	printf("%s", dest);
+	if (argc == 3)
+	{
+		ft_memcpy(argv[1], argv[2], 3);
+		printf("%s", argv[1]);
+	}
 }
 
 
