@@ -87,6 +87,18 @@ int	main(int argc, char **argv)
 	}
 }
 
+ft_strlcpy
+// cette fonction copie src dans dest mais en vérifiant qu'on ne dépasse pas la capacité que dest peut recevoir
+// elle retourne la taille de src;
+
+#include <stdio.h>
+int	main(int argc, char **argv)
+{
+	if (argc == 3)
+	{
+		printf("%ld", ft_strlcpy(argv[1], argv[2], 3));
+	}
+}
 
 
 
