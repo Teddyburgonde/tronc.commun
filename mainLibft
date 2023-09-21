@@ -100,8 +100,17 @@ int	main(int argc, char **argv)
 	}
 }
 
+ft_strlcat
 
+#include <stdio.h>
 
+int	main(int argc, char **argv)
+{
+	if (argc == 3)
+	{
+		printf("%ld", ft_strlcat(argv[1], argv[2], 3));
+	}
+}
 
 
 
