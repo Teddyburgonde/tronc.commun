@@ -135,7 +135,21 @@ int	main(void)
 	printf("%c", ft_tolower(a));
 }
 
+ft_strchr
 
+
+
+#include <string.h>
+#include <stdio.h>
+int	main(void)
+{
+	char test[] = "salut";
+	int	c;
+
+	c = 'a';
+	printf("%s\n", strchr(test, c));
+	printf("%s", ft_strchr(test, c));
+}
 
 
 
