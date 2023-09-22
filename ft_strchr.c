@@ -1,27 +1,14 @@
 #include <stddef.h>
 
-char	*ft_strchr(char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	char	*stock;
-
 	int	i;
-	int	j;
 
 	i = 0;
-	j = 0;
 	while (s[i])
 	{
-			if (s[i] == c)
-			{
-				while (s[i])
-				{
-					stock[j + i] = s[i];
-					i++;
-					j++;
-				}
-				return (&stock[j]);
-
-			}
+		if (s[i] == c)
+			return ((char *)&s[i]);
 			i++;
 	}
 	return (NULL);
