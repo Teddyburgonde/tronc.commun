@@ -123,6 +123,17 @@ int	main(void)
 	printf("%c", ft_toupper(a));
 }
 
+ft_tolower 
+
+
+#include <stdio.h>
+int	main(void)
+{
+	int	a;
+
+	a = 'a';
+	printf("%c", ft_tolower(a));
+}
 
 
 
