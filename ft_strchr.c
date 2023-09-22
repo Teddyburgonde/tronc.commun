@@ -13,16 +13,3 @@ char	*ft_strchr(const char *s, int c)
 	}
 	return (NULL);
 }
-
-#include <string.h>
-#include <stdio.h>
-int	main(void)
-{
-	char test[] = "salut";
-	int	c;
-
-	c = 'a';
-	printf("%s\n", strchr(test, c));
-	printf("%s", ft_strchr(test, c));
-}
-
