@@ -112,5 +112,19 @@ int	main(int argc, char **argv)
 	}
 }
 
+ft_toupper 
+
+#include <stdio.h>
+int	main(void)
+{
+	int	a;
+
+	a = 'b';
+	printf("%c", ft_toupper(a));
+}
+
+
+
+
 
 
