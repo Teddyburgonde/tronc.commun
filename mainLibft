@@ -179,5 +179,20 @@ int	main(int argc, char **argv)
 	}
 }
 
+ft_memchr
+
+#include <string.h>
+#include <stdio.h>
+int	main(void)
+{
+	char	test[] = "salut";
+	size_t	n;
+
+	n = 9;
+	printf("%s\n", memchr(test, 'a', n) ? "TRUE":"FALSE");
+	printf("%s", ft_memchr(test, 'a', n) ? "TRUE":"FALSE");
+}
+
+
 
 
