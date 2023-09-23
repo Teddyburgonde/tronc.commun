@@ -151,5 +151,19 @@ int	main(void)
 	printf("%s", ft_strchr(test, c));
 }
 
+ft_strrchr
+
+
+#include <string.h>
+#include <stdio.h>
+int	main(int argc, char **argv)
+{
+	if (argc == 2)
+	{
+		printf("%s\n", strrchr(argv[1], 'r'));
+		printf("%s", ft_strrchr(argv[1], 'r'));
+	}
+}
+
 
 
