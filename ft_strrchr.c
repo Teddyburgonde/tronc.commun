@@ -1,17 +1,20 @@
-/*
+#include <stddef.h>
+
 char	*ft_strrchr(const char *s, int c)
 {
+	int	i;
 
-}
-*/
-
-#include <string.h>
-#include <stdio.h>
-int	main(int argc, char **argv)
-{
-	if (argc == 3)
+	i = 0;
+	while (s[i])
+		i++;
+	i--;
+	while (s[i] > 0)
 	{
-		printf("%s", strrchr(argv[1], 'a'));
+		if (s[i] == c)
+		{
+			return ((char *)&s[i]);
+		}
+		i--;
 	}
-
+	return (NULL);
 }
