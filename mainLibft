@@ -165,5 +165,19 @@ int	main(int argc, char **argv)
 	}
 }
 
+ft_strncmp 
+
+#include <string.h>
+#include <stdio.h>
+
+int	main(int argc, char **argv)
+{
+	if (argc == 3)
+	{
+		printf("%d\n", ft_strncmp(argv[1], argv[2], 3));
+		printf("%d\n", strncmp(argv[1], argv[2], 3));
+	}
+}
+
 
 
