@@ -242,5 +242,19 @@ int	main(int argc, char **argv)
 	}
 }
 
+ft_calloc
+
+
+#include <stdio.h>
+int	main(void)
+{
+	int *ptr = calloc(2, 12);
+	if (ptr == NULL)
+	{
+		printf("ERROR");
+	}
+	else
+		printf("Memoire allouer");
+}
 
 
