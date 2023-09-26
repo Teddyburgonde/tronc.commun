@@ -23,4 +23,5 @@ int						ft_isascii(int c);
 int						ft_isprint(int c);
 int						ft_toupper(int c);
 int						ft_tolower(int c);
+void					*calloc(size_t count, size_t size);
 #endif
