@@ -270,3 +270,15 @@ int	main(void)
 	tab = ft_strdup(s1);
 	printf("%s", tab);
 }
+
+ft_substr
+
+#include <stdio.h>
+int	main(void)
+{
+	char	s[] = "salutles";
+	char	*tab;
+
+	tab = ft_substr(s, 3, 12);
+	printf("%s", tab);
+}
