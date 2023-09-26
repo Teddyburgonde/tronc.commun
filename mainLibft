@@ -242,6 +242,7 @@ int	main(int argc, char **argv)
 	}
 }
 
+ft_calloc 
 
 #include <stdio.h>
 int	main(void)
@@ -256,3 +257,16 @@ int	main(void)
 		printf("Memoire allouer");
 }
 
+ft_strdup 
+
+
+#include <stdio.h>
+int	main(void)
+{
+	const char	s1[] = "salut";
+	char	*tab;
+
+
+	tab = ft_strdup(s1);
+	printf("%s", tab);
+}
