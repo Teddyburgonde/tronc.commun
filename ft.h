@@ -27,4 +27,5 @@ void					*calloc(size_t count, size_t size);
 char					*ft_strdup(const char *s1);
 char					*ft_substr(const char *s,
 							unsigned int start, size_t len);
+char					*ft_strjoin(char const *s1, char const *s2);
 #endif
