@@ -282,3 +282,15 @@ int	main(void)
 	tab = ft_substr(s, 3, 12);
 	printf("%s", tab);
 }
+
+ft_strjoin
+
+
+#include <stdio.h>
+int	main(void)
+{
+	const char	s3[] = "salut";
+	const char	s4[] = "les amis";
+
+	printf("%s", ft_strjoin(s3, s4));
+}
