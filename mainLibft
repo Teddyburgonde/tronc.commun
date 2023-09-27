@@ -27,7 +27,6 @@ int	main(void)
 }
 
 
-
 ft_memset 
 
 #include <stdio.h>
@@ -293,4 +292,18 @@ int	main(void)
 	const char	s4[] = "les amis";
 
 	printf("%s", ft_strjoin(s3, s4));
+}
+
+ft_strtrim 
+
+#include <stdio.h>
+
+int	main(void)
+{
+	char *tab;
+
+	char	s1[] = "en_coreduchocolatalacanti_en";
+	char	set[] = "ea";
+	tab = ft_strtrim(s1, set);
+	printf("%s", tab);
 }
