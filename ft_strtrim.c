@@ -11,6 +11,20 @@ int	ft_strlen(const char *str)
 	return (i);
 }
 
+int	is_in_set(char c, const char *set)
+{
+	int	i;
+
+	i = 0;
+	while (set[i])
+	{
+		if (c == set[i])
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 char	*ft_strtrim(const char *s1, const char *set)
 {
 	char	*tab;
@@ -21,32 +35,18 @@ char	*ft_strtrim(const char *s1, const char *set)
 	i = 0;
 	j = 0;
 	k = 0;
-	tab = malloc(sizeof(char) * ft_strlen(s1) + 1);
-	while (s1[i] != '\0' && set[j] != '\0')
-	{
-
-		while (s1[i] != set[j])
-		{	
-			tab[k] = s1[i];
-			k++;
+	while (s1[i] && is_in_set(s1[i], set))
 			i++;
-		}
+	j = ft_strlen(s1) - 1;
+	while (j >= 0 && is_in_set(s1[j], set))
+		j--;
+	tab = malloc(sizeof(char) * ft_strlen(s1) + 1);
+	while (i <= j)
+	{
+		tab[k] = s1[i];
+		k++;
 		i++;
-		
 	}
-	//printf("la valeur de j %c\n", set[j]);
 	tab[k] = '\0';
 	return (tab);
-}
-
-#include <stdio.h>
-
-int	main(void)
-{
-	char *tab;
-
-	char	s1[] = "en_coreduchocolatalacanti_en";
-	char	set[] = "ea";
-	tab = ft_strtrim(s1, set);
-	printf("%s", tab);
 }
