@@ -294,7 +294,6 @@ int	main(void)
 	printf("%s", ft_strjoin(s3, s4));
 }
 
-ft_strtrim 
 
 #include <stdio.h>
 
@@ -302,8 +301,11 @@ int	main(void)
 {
 	char *tab;
 
-	char	s1[] = "en_coreduchocolatalacanti_en";
-	char	set[] = "ea";
+	char	s1[] = "xXXx_bonjourxlesamis_xXXx";
+	char	set[] = "xXXx";
 	tab = ft_strtrim(s1, set);
 	printf("%s", tab);
+	free(tab);
 }
+
+
