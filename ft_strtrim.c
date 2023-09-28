@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <stdio.h>
 
 int	ft_strlen(const char *str)
 {
@@ -33,7 +32,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 	int		k;
 
 	i = 0;
-	j = 0;
+	j = ft_strlen(s1) - 1;
 	k = 0;
 	while (s1[i] && is_in_set(s1[i], set))
 			i++;
@@ -41,12 +40,15 @@ char	*ft_strtrim(const char *s1, const char *set)
 	while (j >= 0 && is_in_set(s1[j], set))
 		j--;
 	tab = malloc(sizeof(char) * ft_strlen(s1) + 1);
-	while (i <= j)
+	if (tab)
 	{
-		tab[k] = s1[i];
-		k++;
-		i++;
+		while (i <= j)
+		{
+			tab[k] = s1[i];
+			k++;
+			i++;
+		}
+		tab[k] = '\0';
 	}
-	tab[k] = '\0';
 	return (tab);
 }
