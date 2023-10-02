@@ -294,6 +294,7 @@ int	main(void)
 	printf("%s", ft_strjoin(s3, s4));
 }
 
+ft_strtrim
 
 #include <stdio.h>
 
@@ -308,4 +309,22 @@ int	main(void)
 	free(tab);
 }
 
+ft_split 
+
+#include <stdio.h>
+int	main(int argc, char **argv)
+{
+	int	i;
+	char	**tab;
+
+	(void)argc;
+	i = 0;
+	tab = ft_split(argv[1], argv[2]);
+	while (tab[i])
+	{
+		printf("|%s| ", tab[i]);
+		i++;
+	}
+	free(tab);
+}
 
