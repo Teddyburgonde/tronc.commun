@@ -58,13 +58,13 @@ char	**ft_split(const char *str, char c)
 	while (str[i])
 	{
 		while (str[i] && ft_separator(str[i], c))
-			++i;
+			i++;
 		if (str[i] && !ft_separator(str[i], c))
 		{
 			tab[j] = ft_strdup(&(str[i]), c);
 			j++;
 			while (str[i] && !ft_separator(str[i], c))
-			++i;
+			i++;
 		}
 	}
 	tab[j] = 0;
