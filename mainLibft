@@ -315,16 +315,16 @@ ft_split
 int	main(int argc, char **argv)
 {
 	int	i;
-	char	**tab;
 
-	(void)argc;
 	i = 0;
-	tab = ft_split(argv[1], argv[2]);
+	char	**tab;
+	(void)argc;
+	tab = ft_split(argv[1], argv[2][0]); 
 	while (tab[i])
 	{
 		printf("|%s| ", tab[i]);
 		i++;
 	}
 	free(tab);
+	return 0;
 }
-
