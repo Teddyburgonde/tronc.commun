@@ -1,20 +1,11 @@
 #include <stdlib.h>
 
-int	ft_separator(char c, char *charset)
+int	ft_separator(char c, char charset)
 {
-	int	i;
-
-	i = 0;
-	while (charset[i])
-	{
-		if (c == charset[i])
-			return (1);
-		i++;
-	}
-	return (0);
+	return (c == charset);
 }
 
-int	wd_count_words(char *str, char *charset)
+int	wd_count_words(char const *str, char charset)
 {
 	int	i;
 	int	count;
@@ -23,21 +14,18 @@ int	wd_count_words(char *str, char *charset)
 	count = 0;
 	while (str[i])
 	{
-		if (str[i] && ft_separator(str[i], charset))
-			i++;
-		if (str[i] && !ft_separator(str[i], charset))
+		if (!ft_separator(str[i], charset))
 		{
-			while (str[i] && !ft_separator(str[i], charset))
-			{
-				i++;
-			}
 			count++;
+			while (str[i] && !ft_separator(str[i], charset))
+				i++;
 		}
+		i++;
 	}
 	return (count);
 }
 
-char	*ft_strdup(char *str, char *charset)
+char	*ft_strdup(const char *str, char charset)
 {
 	int		i;
 	char	*word;
@@ -48,7 +36,7 @@ char	*ft_strdup(char *str, char *charset)
 	word = malloc(sizeof(char) * (i + 1));
 	i = 0;
 	while (str[i] && !ft_separator(str[i], charset))
-	{
+	{	
 		word[i] = str[i];
 		i++;
 	}
@@ -56,7 +44,7 @@ char	*ft_strdup(char *str, char *charset)
 	return (word);
 }
 
-char	**ft_split(char *str, char *charset)
+char	**ft_split(const char *str, char c)
 {
 	char	**tab;
 	int		i;
@@ -64,35 +52,19 @@ char	**ft_split(char *str, char *charset)
 
 	i = 0;
 	j = 0;
-	tab = malloc(sizeof(char *) * (wd_count_words(str, charset) + 1));
+	tab = malloc(sizeof(char *) * (wd_count_words(str, c) + 1));
 	while (str[i])
 	{
-		while (str[i] && ft_separator(str[i], charset))
+		while (str[i] && ft_separator(str[i], c))
 			++i;
-		if (str[i] && !ft_separator(str[i], charset))
+		if (str[i] && !ft_separator(str[i], c))
 		{
-			tab[j] = ft_strdup(&(str[i]), charset);
+			tab[j] = ft_strdup(&(str[i]), c);
 			j++;
-			while (str[i] && !ft_separator(str[i], charset))
-				++i;
+			while (str[i] && !ft_separator(str[i], c))
+			++i;
 		}
 	}
 	tab[j] = 0;
 	return (tab);
-}
-#include <stdio.h>
-int	main(int argc, char **argv)
-{
-	int	i;
-	char	**tab;
-
-	(void)argc;
-	i = 0;
-	tab = ft_split(argv[1], argv[2]);
-	while (tab[i])
-	{
-		printf("|%s| ", tab[i]);
-		i++;
-	}
-	free(tab);
 }
