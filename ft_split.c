@@ -7,7 +7,7 @@ int	ft_separator(char c, char charset)
 	return (0);
 }
 
-int	wd_count_words(char const *str, char charset)
+int	wd_count_words(const char *str, char charset)
 {
 	int	i;
 	int	count;
