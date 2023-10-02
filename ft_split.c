@@ -2,7 +2,9 @@
 
 int	ft_separator(char c, char charset)
 {
-	return (c == charset);
+	if (c == charset)
+		return (1);
+	return (0);
 }
 
 int	wd_count_words(char const *str, char charset)
