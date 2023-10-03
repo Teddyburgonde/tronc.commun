@@ -1,24 +1,40 @@
 #include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 
 // convert interger to string
 
+int	ft_number_len(int n)
+{
+	int	len;
+
+	len = 0;
+	while (n != 0)
+	{
+		len++;
+		n = n / 10;
+	}
+	return (len);
+}
+
 char	*ft_itoa(int n)
 {
-	if ( n >= '0' && n <= '9')
+	char	*tab;
+	int		sign;
+	int		len;
+
+	sign = 0;
+	len = ft_number_len(n);
+	if (n < 0)
 	{
-				
+		sign = 1;
 	}
+	if (sign == 1)
+	{
+		tab[0] = '-';
+	}
+	return (tab);
 }
 
 
-int	main(void)
-{
-	int		c;
-	char	buf[20];
+#include <stdio.h>
 
-	c = 15;
-	sprintf(buf, "%d", c);
-	printf("%s", buf);
-}
+
