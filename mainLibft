@@ -328,3 +328,13 @@ int	main(int argc, char **argv)
 	free(tab);
 	return 0;
 }
+
+ft_itoa
+
+#include <stdio.h>
+
+int	main(void)
+{
+	printf("%s", ft_itoa(879900));
+}
+
