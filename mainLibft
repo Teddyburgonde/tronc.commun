@@ -268,6 +268,7 @@ int	main(void)
 
 	tab = ft_strdup(s1);
 	printf("%s", tab);
+	free(tab);
 }
 
 ft_substr
@@ -280,6 +281,7 @@ int	main(void)
 
 	tab = ft_substr(s, 3, 12);
 	printf("%s", tab);
+	free(tab);
 }
 
 ft_strjoin
@@ -292,6 +294,7 @@ int	main(void)
 	const char	s4[] = "les amis";
 
 	printf("%s", ft_strjoin(s3, s4));
+
 }
 
 ft_strtrim
@@ -347,4 +350,6 @@ int	main(void)
 
 	tab = "salut";
 	printf("%s", ft_strmapi(tab, change));
+	free(tab);
 }
+
