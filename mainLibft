@@ -353,3 +353,15 @@ int	main(void)
 	free(tab);
 }
 
+ft_striteri 
+
+#include <stdio.h>
+
+int	main(void)
+{
+	char	tab[] = "salut";
+
+	printf("%s\n", tab);
+	ft_striteri(tab, &function1);
+	printf("%s\n", tab);
+}
