@@ -338,3 +338,13 @@ int	main(void)
 	printf("%s", ft_itoa(879900));
 }
 
+ft_strmapi
+
+#include <stdio.h>
+int	main(void)
+{
+	char *tab;
+
+	tab = "salut";
+	printf("%s", ft_strmapi(tab, change));
+}
