@@ -33,4 +33,5 @@ char					**ft_split(const char *s, char c);
 char					*ft_itoa(int n);
 char					*ft_strmapi(const char *s,
 							char (*f)(unsigned int, char));
+void					ft_striteri(char *s, void (*f)(unsigned int, char*));
 #endif
