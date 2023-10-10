@@ -1,50 +1,38 @@
 #include <stdlib.h>
 
-int	function1(int a, int b)
+int	ft_strlen(const char *str)
 {
-	return (a + b);
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
-int	test(int a, int b)
+char	change(unsigned int i, char c)
 {
-	int	(*ptr)(int, int);
-	int	x;
-
-	ptr = &function1;
-	x = ptr(a, b);
-	return (x);
+	if (i == 0 || i != '\0')
+		return ('X');
+	return (c);
 }
 
-#include <stdio.h>
-int	main(void)
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
-	printf("%d", test(10, 9));
-}
+	char	*tab;
+	int		len;
+	int		i;
 
-/*
-char	f(unsigned int i, char c)
-{
-	
-}
-
-char	*ft_strmapi(const char *s, char (*f)(unsigned int, char ))
-{
-
-
-
-
-
-	char *tab;
-	
-	tab = malloc(sizeof(char) * (i + 1));
+	i = 0;
+	len = ft_strlen(s);
+	tab = malloc(sizeof(char) * (len + 1));
 	if (!tab)
 		return (NULL);
-	while (tab[i])
+	while (s[i])
 	{
-		tab[i] = c;
+		tab[i] = f(i, s[i]);
 		i++;
 	}
-	return(tab);
-
+	tab[i] = '\0';
+	return (tab);
 }
-*/
