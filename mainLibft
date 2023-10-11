@@ -424,4 +424,5 @@ int	main(void)
 	nb = -42;
 	fd = open("testons.txt", O_WRONLY | O_CREAT, 0777);
 	ft_putnbr_fd(nb, fd);
+	close (fd);
 }
