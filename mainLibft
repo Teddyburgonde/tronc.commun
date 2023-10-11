@@ -365,3 +365,19 @@ int	main(void)
 	ft_striteri(tab, &function1);
 	printf("%s\n", tab);
 }
+
+ft_putchar_fd 
+
+int	main(void)
+{
+
+	char	c;
+	int		fd;
+
+	c = 'A';
+	fd = open("test.txt", O_WRONLY | O_CREAT, 0345);
+	ft_putchar_fd(c, fd);
+	close(fd);
+}
+
+
