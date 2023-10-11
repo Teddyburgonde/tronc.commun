@@ -393,6 +393,21 @@ int	main(void)
 
 	fd = open("test.txt", O_WRONLY | O_CREAT, 0640);
 	ft_putstr_fd(str, fd);
+	close(fd);
 }
 
+ft_putendl_fd
 
+
+#include <fcntl.h>
+int	main(void)
+{
+	int	fd;
+	char	tab[] = "salut les amis";
+	char	tab2[] = "aujourd'hui est un grand jour";
+
+	fd = open("testons.txt", O_WRONLY | O_CREAT, 0777);
+	ft_putendl_fd(tab, fd);
+	ft_putendl_fd(tab2, fd);
+	close(fd);
+}
