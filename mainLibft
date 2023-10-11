@@ -368,6 +368,8 @@ int	main(void)
 
 ft_putchar_fd 
 
+#include <fcntl.h>
+
 int	main(void)
 {
 
@@ -375,9 +377,22 @@ int	main(void)
 	int		fd;
 
 	c = 'A';
-	fd = open("test.txt", O_WRONLY | O_CREAT, 0345);
+	fd = open("test.txt", O_WRONLY | O_CREAT, 0640);
 	ft_putchar_fd(c, fd);
 	close(fd);
+}
+
+ft_putstr_fd 
+
+#include <fcntl.h>
+
+int	main(void)
+{
+	char	str[] = "salut";
+	int		fd;
+
+	fd = open("test.txt", O_WRONLY | O_CREAT, 0640);
+	ft_putstr_fd(str, fd);
 }
 
 
