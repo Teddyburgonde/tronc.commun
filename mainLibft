@@ -426,3 +426,16 @@ int	main(void)
 	ft_putnbr_fd(nb, fd);
 	close (fd);
 }
+
+ft_lstnew
+
+#include <stdio.h>
+
+int	main(void)
+{
+	int	valeur;
+	
+	valeur = 42;
+	t_list *test1 = ft_lstnew(&valeur);
+	printf("%d", *(int *)test1->content);
+}
