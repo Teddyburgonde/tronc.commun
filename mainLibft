@@ -436,6 +436,26 @@ int	main(void)
 	int	valeur;
 	
 	valeur = 42;
-	t_list *test1 = ft_lstnew(&valeur);
-	printf("%d", *(int *)test1->content);
+	t_list *tmp = ft_lstnew(&valeur);
+	printf("%d", *(int *)tmp->content);
+}
+
+ft_lstadd_front
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int	main(void)
+{
+	t_list	*my_list;
+	t_list	*new_element;
+
+	my_list = NULL;
+	new_element = (t_list *)malloc(sizeof(t_list));
+	if (!new_element)
+		printf("ERROR");
+	new_element->content = "i am a new element";
+	ft_lstadd_front(&my_list, new_element);
+	printf("%s\n", (char *)my_list->content);
+	free(new_element);
 }
