@@ -1,5 +1,6 @@
 #ifndef LIBFT_H
 # define LIBFT_H
+# include <stdlib.h>
 
 unsigned int			ft_strlen(const char *str);
 void					*ft_memset(void *s, int c, unsigned int n);
@@ -39,8 +40,9 @@ void					ft_putstr_fd(char *s, int fd);
 void					ft_putendl_fd(char *s, int fd);
 void					ft_putnbr_fd(int n, int fd);
 typedef struct s_list {
-	void			*content;
-	struct s_list	*next;
+	void				*content;
+	struct s_list		*next;
 }	t_list;
+t_list					*ft_lstnew(void *content);
 void					ft_lstadd_front(t_list **lst, t_list *new);
 #endif
