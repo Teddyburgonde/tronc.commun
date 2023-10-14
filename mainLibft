@@ -459,3 +459,41 @@ int	main(void)
 	printf("%s\n", (char *)my_list->content);
 	free(new_element);
 }
+
+ft_lssize
+
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	new->next = *lst;
+	*lst = new;
+}
+
+#include <stdlib.h>
+#include <stdio.h>
+
+int	main(void)
+{
+	t_list	*my_list;
+	t_list	*element1;
+	t_list	*element2;
+	t_list	*element3;
+	//t_list	*element4;
+
+	my_list = NULL;
+	element1 = (t_list *)malloc(sizeof(t_list));
+	element2 = (t_list *)malloc(sizeof(t_list));
+	element3 = (t_list*)malloc(sizeof(t_list));
+	ft_lstadd_front(&my_list, element1);
+	ft_lstadd_front(&my_list, element2);
+	ft_lstadd_front(&my_list, element3);
+	
+	element1->content = "Je suis le contenu de l'element 1";
+	element2->content = "Je suis le contenu de l'element 2";
+	element3->content = "Je suis le contenu de l'element 3";
+	printf("%d\n", ft_lstsize(my_list));
+	while (my_list != NULL)
+	{
+		printf("%s\n", (char *)my_list->content);
+		my_list = my_list->next;
+	}
+}
