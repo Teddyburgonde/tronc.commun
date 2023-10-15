@@ -497,3 +497,54 @@ int	main(void)
 		my_list = my_list->next;
 	}
 }
+
+ft_lstlast 
+
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	new->next = *lst;
+	*lst = new;
+}
+
+#include <stdio.h>
+#include <stdlib.h>
+int	main(void)
+{
+	// creation de la liste et des elements;
+	t_list	*my_list;
+	t_list	*element1;
+	t_list	*element2;
+	t_list	*element3;
+	t_list	*element4;
+	t_list	*ptr_last_element;
+	
+	my_list = NULL;
+	// allocation memoire pour les elements
+	element1 = (t_list *)malloc(sizeof(t_list));
+	element2 = (t_list *)malloc(sizeof(t_list));
+	element3 = (t_list *)malloc(sizeof(t_list));
+	element4 = (t_list *)malloc(sizeof(t_list));
+
+	// inserer du contenu dans les elements
+	element1->content = "arthur";
+	element2->content = "benoit";
+	element3->content = "cedric";
+	element4->content = "damien";
+	
+	// add elements in the list	
+	ft_lstadd_front(&my_list, element1);
+	ft_lstadd_front(&my_list, element2);
+	ft_lstadd_front(&my_list, element3);
+	ft_lstadd_front(&my_list, element4);
+
+	ptr_last_element = ft_lstlast(my_list);
+	if(ptr_last_element)
+	{
+		printf("le dernier element est : %s", (char *)ptr_last_element->content);
+	}
+	free(element1);
+	free(element2);
+	free(element3);
+	free(element4);
+}
+
