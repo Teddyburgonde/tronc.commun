@@ -548,3 +548,57 @@ int	main(void)
 	free(element4);
 }
 
+ft_lstadd_back 
+
+#include <stdio.h>
+void	print_list(t_list *lst)
+{
+	t_list	*current_element;
+
+	current_element = lst;
+	while (current_element != NULL)
+	{
+		printf("%s\n", (char *)current_element->content);
+		current_element = current_element->next;
+	}
+}
+
+#include <stdlib.h>
+#include <stdio.h>
+int	main(void)
+{
+	t_list	*my_list;
+	t_list	*element1;
+	t_list	*element2;
+	t_list	*element3;
+
+	my_list = NULL;
+	element1 = (t_list *)malloc(sizeof(t_list));
+	element2 = (t_list *)malloc(sizeof(t_list));
+	element3 = (t_list *)malloc(sizeof(t_list));
+	
+	// add content 
+	element1->content = "je suis element1";
+	element2->content = "je suis element2";
+	element3->content = "je suis element3";
+	ft_lstadd_back(&my_list, element1);
+	ft_lstadd_back(&my_list, element2);
+	ft_lstadd_back(&my_list, element3);
+	print_list(my_list);
+	if (my_list != NULL)
+	{
+		t_list	*last_element;
+
+		last_element = my_list;
+		while (last_element->next != NULL)
+		{
+			last_element = last_element->next;
+		}
+		printf("je suis l'element en fin de liste%s\n", (char *)last_element->content);
+	}
+	free(element1);
+	free(element2);
+	free(element3);
+}
+
+
