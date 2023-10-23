@@ -601,4 +601,59 @@ int	main(void)
 	free(element3);
 }
 
+ft_lstdelone 
+
+
+#include "libft.h"
+#include <stdlib.h>
+
+unsigned int	ft_strlen(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strdup(const char *s1)
+{
+	char		*tab;
+	int			i;
+
+	i = 0;
+	tab = (char *)malloc(sizeof(char) * ft_strlen(s1) + 1);
+	if (tab)
+	{
+		while (s1[i])
+		{
+			tab[i] = s1[i];
+			i++;
+		}
+		tab[i] = '\0';
+	}
+	return (tab);
+}
+
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+	if (!lst || !del)
+		return ;
+	del(lst->content);
+	free(lst);
+}
+
+#include <stdio.h>
+
+int	main(void)
+{
+	t_list *ptr_my_lst;
+
+	ptr_my_lst = (t_list *)malloc(sizeof(t_list));
+	
+	ptr_my_lst->content = ft_strdup("salut");
+	//ft_lstdelone(ptr_my_lst, free);
+	printf("%s", (char *)ptr_my_lst->content);
+}
 
