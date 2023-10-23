@@ -657,3 +657,133 @@ int	main(void)
 	printf("%s", (char *)ptr_my_lst->content);
 }
 
+ft_lstclear 
+
+
+#include "libft.h"
+#include <stdlib.h>
+unsigned int	ft_strlen(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strdup(const char *s1)
+{
+	char		*tab;
+	int			i;
+
+	i = 0;
+	tab = (char *)malloc(sizeof(char) * ft_strlen(s1) + 1);
+	if (tab)
+	{
+		while (s1[i])
+		{
+			tab[i] = s1[i];
+			i++;
+		}
+		tab[i] = '\0';
+	}
+	return (tab);
+}
+
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*ptr_last_element;
+
+	ptr_last_element = *lst;
+	if (*lst == NULL)
+	{
+		*lst = new;
+		new->next = NULL;
+		return ;
+	}
+	while (ptr_last_element->next != NULL)
+	{
+		ptr_last_element = ptr_last_element->next;
+	}
+	ptr_last_element->next = new;
+	new->next = NULL;
+}
+
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+	if (!lst || !del)
+		return ;
+	del(lst->content);
+	free(lst);
+}
+
+
+void	ft_lstclear(t_list **lst, void (*del)(void *))
+{
+	t_list	*ptr;
+
+	if (!*lst || !del)
+		return ;
+	ptr = *lst;
+	while (ptr->next != NULL)
+	{
+		ptr = ptr->next;
+		ft_lstdelone(*lst, del);
+		*lst = ptr;
+	}
+	free(ptr);
+}
+#include <stdio.h>
+void print_fruit_list(t_list *head)
+{
+    t_list *current = head;
+    while (current != NULL)
+    {
+        printf("%s\n", (char *)current->content);
+        current = current->next;
+    }
+}
+#include <stdio.h>
+int	main(void)
+{
+	t_list	*my_list;
+	t_list	*element1;
+	t_list	*element2;
+
+	my_list = NULL;
+
+	element1 = (t_list *)malloc(sizeof(t_list));
+	element2 = (t_list *)malloc(sizeof(t_list));
+	element1->content= ft_strdup("bonjour les amis ");
+	element2->content = ft_strdup("hello 2");
+	ft_lstadd_back(&my_list, element1);
+	ft_lstadd_back(&my_list, element2);
+	/*
+	t_list *current;
+
+	current = my_list;
+	while (current != NULL)
+	{
+		printf("%s\n", (char *)current->content);
+		current = current->next;
+	}
+	*/
+	print_fruit_list(my_list);
+	ft_lstclear(&my_list, free);
+}
+
+
+DIVERS MAIN 
+
+void print_fruit_list(t_list *head)
+{
+    t_list *current = head;
+    while (current != NULL)
+    {
+        printf("%s\n", (char *)current->content);
+        current = current->next;
+    }
+}
+
+
