@@ -773,6 +773,115 @@ int	main(void)
 	ft_lstclear(&my_list, free);
 }
 
+ft_lstiter 
+
+#include "libft.h"
+
+unsigned int	ft_strlen(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strdup(const char *s1)
+{
+	char		*tab;
+	int			i;
+
+	i = 0;
+	tab = (char *)malloc(sizeof(char) * ft_strlen(s1) + 1);
+	if (tab)
+	{
+		while (s1[i])
+		{
+			tab[i] = s1[i];
+			i++;
+		}
+		tab[i] = '\0';
+	}
+	return (tab);
+}
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*ptr_last_element;
+
+	ptr_last_element = *lst;
+	if (*lst == NULL)
+	{
+		*lst = new;
+		new->next = NULL;
+		return ;
+	}
+	while (ptr_last_element->next != NULL)
+	{
+		ptr_last_element = ptr_last_element->next;
+	}
+	ptr_last_element->next = new;
+	new->next = NULL;
+}
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	if (!lst || !f)
+		return ;
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
+}
+
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+	if (!lst || !del)
+		return ;
+	del(lst->content);
+	free(lst);
+}
+
+void	ft_lstclear(t_list **lst, void (*del)(void *))
+{
+	t_list	*ptr;
+
+	if (!*lst || !del)
+		return ;
+	while (*lst)
+	{
+		ptr = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = ptr;
+	}
+}
+#include <stdio.h>
+
+void	print_element(void *content)
+{
+	if (!content)
+		return ;
+	printf("%s\n", (char *)content);
+}
+int	main(void)
+{
+	t_list	*my_list;
+	t_list	*element1;
+	t_list	*element2;
+
+	my_list = NULL;
+	element1 = (t_list *)malloc(sizeof(t_list));
+	element2 = (t_list *)malloc(sizeof(t_list));
+
+	element1->content = ft_strdup("je suis 1");
+	element2->content = ft_strdup("je suis 2");
+
+	ft_lstadd_back(&my_list, element1);
+	ft_lstadd_back(&my_list, element2);
+	ft_lstiter(my_list, print_element);	
+	ft_lstclear(&my_list, free);
+	
+}
 
 DIVERS MAIN 
 
