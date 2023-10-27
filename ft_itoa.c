@@ -1,67 +1,60 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tebandam <tebandam@student.42angouleme.fr  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/27 08:10:14 by tebandam          #+#    #+#             */
+/*   Updated: 2023/10/27 17:51:42 by tebandam         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 #include <stdlib.h>
 
-int	ft_number_len(int n)
+static int	ft_digit_count(long int i)
 {
-	int	len;
+	int	count;
 
-	len = 0;
-	while (n != 0)
+	count = 0;
+	if (i < 0)
 	{
-		len++;
-		n = n / 10;
+		i *= -1;
+		count++;
 	}
-	return (len);
-}
-
-int	cut(int n, int pos)
-{
-	int	i;
-
-	i = 0;
-	while (i < pos - 1)
+	while (i > 0)
 	{
-		n /= 10;
-		i++;
+		i /= 10;
+		count++;
 	}
-	n %= 10;
-	if (n < 0)
-	{
-		n *= -1;
-	}
-	return (n);
-}
-
-void	initialize_value(int *sign, int *i)
-{
-	*sign = 0;
-	*i = 0;
+	return (count);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*tab;
-	int		len;
-	int		sign;
-	int		i;
+	char		*str;
+	int			i;
+	long int	nb;
 
-	initialize_value(&sign, &i);
-	len = ft_number_len(n);
-	if (n < 0)
+	nb = n;
+	i = ft_digit_count(nb);
+	str = malloc(i * sizeof(char) + 1);
+	str[i--] = 0;
+	if (nb == 0)
 	{
-		sign = 1;
-		i = 1;
-		len++;
+		str = ft_calloc(2, sizeof(char));
+		str[0] = 48;
 	}
-	tab = malloc(sizeof(char) * (len + 1));
-	if (!tab)
-		return (NULL);
-	if (sign == 1)
-		tab[0] = '-';
-	while (i < len)
+	if (nb < 0)
 	{
-		tab[i] = cut(n, len - i) + '0';
-		i++;
+		str[0] = '-';
+		nb = nb * -1;
 	}
-	tab[i] = '\0';
-	return (tab);
+	while (nb > 0)
+	{
+		str[i--] = nb % 10 + '0';
+		nb = nb / 10;
+	}
+	return (str);
 }

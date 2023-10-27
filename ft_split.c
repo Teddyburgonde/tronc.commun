@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tebandam <tebandam@student.42angouleme.fr  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/27 07:50:01 by tebandam          #+#    #+#             */
+/*   Updated: 2023/10/27 17:36:10 by tebandam         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 #include <stdlib.h>
 
 int	ft_separator(char c, char charset)
@@ -27,7 +40,7 @@ int	wd_count_words(const char *str, char charset)
 	return (count);
 }
 
-char	*ft_strdup(const char *str, char charset)
+char	*ft_strdup_edit(const char *str, char charset)
 {
 	int		i;
 	char	*word;
@@ -61,7 +74,7 @@ char	**ft_split(const char *str, char c)
 			i++;
 		if (str[i] && !ft_separator(str[i], c))
 		{
-			tab[j] = ft_strdup(&(str[i]), c);
+			tab[j] = ft_strdup_edit(&str[i], c);
 			j++;
 			while (str[i] && !ft_separator(str[i], c))
 			i++;

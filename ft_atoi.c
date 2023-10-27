@@ -1,25 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tebandam <tebandam@student.42angouleme.fr  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/26 22:40:50 by tebandam          #+#    #+#             */
+/*   Updated: 2023/10/26 22:40:55 by tebandam         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	is_whitespace(char c)
 {
-	return (c == ' ' || (c >= '\t' && c <= '\r'));
-}
-
-void	ft_init(int *i, int *a, int *sign)
-{
-	*i = 0;
-	*a = 0;
-	*sign = 1;
-}
-
-void	script_sign(const char *str, int *i, int *sign)
-{
-	while ((str[*i] == '+' || str[*i] == '-') || *sign == 0)
-	{
-		if (str[*i] == '-')
-			*sign = -1;
-		(*i)++;
-	}
+	if ((c >= 9 && c <= 13) || c == 32)
+		return (1);
+	return (0);
 }
 
 int	ft_atoi(const char *str)
@@ -28,23 +25,23 @@ int	ft_atoi(const char *str)
 	int	a;
 	int	sign;
 
-	ft_init(&i, &a, &sign);
+	i = 0;
+	a = 0;
+	sign = 1;
 	while (is_whitespace(str[i]))
 		i++;
-	script_sign(str, &i, &sign);
+	while (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i + 1] == '+')
+			return (0);
+		if (str[i] == '-')
+			sign *= -1;
+		if (str[i + 1] == '-')
+			return (0);
+		i++;
+	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (sign == -1)
-		{
-			if (a < (-2147483648 - (str[i] - '0')) / 10)
-				return (0);
-		}
-		else if (a > (2147483647 - (str[i] - '0')) / 10)
-		{
-			if (a > (4294967295 - (str[i] - '0')) / 10)
-				return (0);
-			return (-1);
-		}
 		a = a * 10 + (str[i] - '0');
 		i++;
 	}
