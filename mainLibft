@@ -1,0 +1,898 @@
+ft_isalpha ft_isdigit ft_asalnum ft_isascii ft_isprint 
+int	main(int argc, char **argv)
+{
+	int	i;
+
+	i = 0;
+	if (argc == 2)
+	{
+		while (argv[1][i])
+		{
+			if ((argv[1][i]))
+				write (1, "ok\n", 3);
+			else
+				write (1, "NO\n",3);
+			i++;
+		}
+	}
+}
+
+ft_strlen 
+
+#include <stdio.h>
+int	main(void)
+{
+	char	tab[] = "salut";
+	printf("%d", ft_strlen(tab));
+}
+
+
+ft_memset 
+
+#include <stdio.h>
+//#include <string.h>
+
+int	main(int argc, char **argv)
+{
+	unsigned int	n;
+	char	letter;
+
+	letter = 'Z';
+	n = 3;
+
+	if (argc == 2)
+	{
+		ft_memset(argv[1], letter, n);
+		printf("%s", argv[1]);
+	}
+	//memset(argv[1], letter, 3);
+	//printf("%s", argv[1]);
+}
+
+ft_bzero 
+
+#include <string.h>
+#include <stdio.h>
+int	main(void)
+{
+	char	tab[] = "salut";
+	//ft_bzero(tab, 3);
+	//printf("%s\n", tab);
+	bzero(tab, 3);
+	printf("%s", tab);
+}
+
+ft_memcpy
+#include <stdio.h>
+int	main(int argc, char **argv)
+{
+	if (argc == 3)
+	{
+		ft_memcpy(argv[1], argv[2], 3);
+		printf("%s", argv[1]);
+	}
+}
+
+ft_memmove
+
+#include <string.h>
+#include <stdio.h>
+int	main(int argc, char **argv)
+{
+	if (argc == 3)
+	{
+		memmove(argv[1], argv[2], 3);
+		printf("%s", argv[1]);
+	}
+}
+
+ft_strlcpy
+// cette fonction copie src dans dest mais en vérifiant qu'on ne dépasse pas la capacité que dest peut recevoir
+// elle retourne la taille de src;
+
+#include <stdio.h>
+int	main(int argc, char **argv)
+{
+	if (argc == 3)
+	{
+		printf("%ld", ft_strlcpy(argv[1], argv[2], 3));
+	}
+}
+
+ft_strlcat
+
+#include <stdio.h>
+
+int	main(int argc, char **argv)
+{
+	if (argc == 3)
+	{
+		printf("%ld", ft_strlcat(argv[1], argv[2], 3));
+	}
+}
+
+ft_toupper 
+
+#include <stdio.h>
+int	main(void)
+{
+	int	a;
+
+	a = 'b';
+	printf("%c", ft_toupper(a));
+}
+
+ft_tolower 
+
+
+#include <stdio.h>
+int	main(void)
+{
+	int	a;
+
+	a = 'a';
+	printf("%c", ft_tolower(a));
+}
+
+ft_strchr
+
+
+
+#include <string.h>
+#include <stdio.h>
+int	main(void)
+{
+	char test[] = "salut";
+	int	c;
+
+	c = 'a';
+	printf("%s\n", strchr(test, c));
+	printf("%s", ft_strchr(test, c));
+}
+
+ft_strrchr
+
+
+#include <string.h>
+#include <stdio.h>
+int	main(int argc, char **argv)
+{
+	if (argc == 2)
+)
+	{
+		printf("%s\n", strrchr(argv[1], 'r'));
+		printf("%s", ft_strrchr(argv[1], 'r'));
+	}
+}
+
+ft_strncmp 
+
+#include <string.h>
+#include <stdio.h>
+
+int	main(int argc, char **argv)
+{
+	if (argc == 3)
+	{
+		printf("%d\n", ft_strncmp(argv[1], argv[2], 3));
+		printf("%d\n", strncmp(argv[1], argv[2], 3));
+	}
+}
+
+ft_memchr
+
+#include <string.h>
+#include <stdio.h>
+int	main(void)
+{
+	char	test[] = "salut";
+	size_t	n;
+
+	n = 9;
+	printf("%s\n", memchr(test, 'a', n) ? "TRUE":"FALSE");
+	printf("%s", ft_memchr(test, 'a', n) ? "TRUE":"FALSE");
+}
+
+ft_memcmp 
+
+#include <string.h>
+#include <stdio.h>
+
+int	main(int argc, char **argv)
+{
+	if (argc == 3)
+	{
+		printf("%d\n", ft_memcmp(argv[1], argv[2], 3));
+		printf("%d\n", memcmp(argv[1], argv[2], 3));
+	}
+}
+
+ft_strnstr
+
+#include <string.h>
+#include <stdio.h>
+
+int	main(int argc, char **argv)
+{
+	if (argc == 4)
+	{
+		printf("%s\n", ft_strnstr(argv[1], argv[2], 5);
+		printf("%s", strnstr(argv[1], argv[2], 5));
+		//printf("%s\n", ft_strnstr(argv[1], argv[2], 5));
+		//printf("%s", strnstr(argv[1], argv[2], 5));
+	}
+}
+
+ft_atoi 
+
+
+
+#include <stdlib.h>
+#include <stdio.h>
+
+int	main(int argc, char **argv)
+{
+
+	if (argc == 2)
+	{
+		printf("%d\n", ft_atoi(argv[1]));
+		printf("%d", atoi(argv[1]));
+
+	}
+}
+
+ft_calloc 
+
+#include <stdio.h>
+int	main(void)
+{
+	int *ptr = ft_calloc(2, 12);
+	
+	if (ptr == NULL)
+	{
+		printf("ERROR");
+	}
+	else
+		printf("Memoire allouer");
+}
+
+ft_strdup 
+
+
+#include <stdio.h>
+int	main(void)
+{
+	const char	s1[] = "salut";
+	char	*tab;
+
+
+	tab = ft_strdup(s1);
+	printf("%s", tab);
+	free(tab);
+}
+
+ft_substr
+
+#include <stdio.h>
+int	main(void)
+{
+	char	s[] = "salutles";
+	char	*tab;
+
+	tab = ft_substr(s, 3, 12);
+	printf("%s", tab);
+	free(tab);
+}
+
+ft_strjoin
+
+
+#include <stdio.h>
+int	main(void)
+{
+	const char	s3[] = "salut";
+	const char	s4[] = "les amis";
+
+	printf("%s", ft_strjoin(s3, s4));
+
+}
+
+ft_strtrim
+
+#include <stdio.h>
+
+int	main(void)
+{
+	char *tab;
+
+	char	s1[] = "xXXx_bonjourxlesamis_xXXx";
+	char	set[] = "xXXx";
+	tab = ft_strtrim(s1, set);
+	printf("%s", tab);
+	free(tab);
+}
+
+ft_split 
+
+#include <stdio.h>
+int	main(int argc, char **argv)
+{
+	int	i;
+
+	i = 0;
+	char	**tab;
+	(void)argc;
+	tab = ft_split(argv[1], argv[2][0]); 
+	while (tab[i])
+	{
+		printf("|%s| ", tab[i]);
+		i++;
+	}
+	free(tab);
+	return 0;
+}
+
+ft_itoa
+
+#include <stdio.h>
+
+int	main(void)
+{
+	printf("%s", ft_itoa(879900));
+}
+
+ft_strmapi
+
+#include <stdio.h>
+int	main(void)
+{
+	char *tab;
+
+	tab = "salut";
+	printf("%s", ft_strmapi(tab, change));
+	free(tab);
+}
+
+ft_striteri 
+
+#include <stdio.h>
+
+int	main(void)
+{
+	char	tab[] = "salut";
+
+	printf("%s\n", tab);
+	ft_striteri(tab, &function1);
+	printf("%s\n", tab);
+}
+
+ft_putchar_fd 
+
+#include <fcntl.h>
+
+int	main(void)
+{
+
+	char	c;
+	int		fd;
+
+	c = 'A';
+	fd = open("test.txt", O_WRONLY | O_CREAT, 0640);
+	ft_putchar_fd(c, fd);
+	close(fd);
+}
+
+ft_putstr_fd 
+
+#include <fcntl.h>
+
+int	main(void)
+{
+	char	str[] = "salut";
+	int		fd;
+
+	fd = open("test.txt", O_WRONLY | O_CREAT, 0640);
+	ft_putstr_fd(str, fd);
+	close(fd);
+}
+
+ft_putendl_fd
+
+
+#include <fcntl.h>
+int	main(void)
+{
+	int	fd;
+	char	tab[] = "salut les amis";
+	char	tab2[] = "aujourd'hui est un grand jour";
+
+	fd = open("testons.txt", O_WRONLY | O_CREAT, 0777);
+	ft_putendl_fd(tab, fd);
+	ft_putendl_fd(tab2, fd);
+	close(fd);
+}
+
+ft_putnbr_fd
+
+#include <fcntl.h>
+
+int	main(void)
+{
+	int	nb;
+	int	fd;
+
+	nb = -42;
+	fd = open("testons.txt", O_WRONLY | O_CREAT, 0777);
+	ft_putnbr_fd(nb, fd);
+	close (fd);
+}
+
+ft_lstnew
+
+#include <stdio.h>
+
+int	main(void)
+{
+	int	valeur;
+	
+	valeur = 42;
+	t_list *tmp = ft_lstnew(&valeur);
+	printf("%d", *(int *)tmp->content);
+}
+
+ft_lstadd_front
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int	main(void)
+{
+	t_list	*my_list;
+	t_list	*new_element;
+
+	my_list = NULL;
+	new_element = (t_list *)malloc(sizeof(t_list));
+	if (!new_element)
+		printf("ERROR");
+	new_element->content = "i am a new element";
+	ft_lstadd_front(&my_list, new_element);
+	printf("%s\n", (char *)my_list->content);
+	free(new_element);
+}
+
+ft_lssize
+
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	new->next = *lst;
+	*lst = new;
+}
+
+#include <stdlib.h>
+#include <stdio.h>
+
+int	main(void)
+{
+	t_list	*my_list;
+	t_list	*element1;
+	t_list	*element2;
+	t_list	*element3;
+	//t_list	*element4;
+
+	my_list = NULL;
+	element1 = (t_list *)malloc(sizeof(t_list));
+	element2 = (t_list *)malloc(sizeof(t_list));
+	element3 = (t_list*)malloc(sizeof(t_list));
+	ft_lstadd_front(&my_list, element1);
+	ft_lstadd_front(&my_list, element2);
+	ft_lstadd_front(&my_list, element3);
+	
+	element1->content = "Je suis le contenu de l'element 1";
+	element2->content = "Je suis le contenu de l'element 2";
+	element3->content = "Je suis le contenu de l'element 3";
+	printf("%d\n", ft_lstsize(my_list));
+	while (my_list != NULL)
+	{
+		printf("%s\n", (char *)my_list->content);
+		my_list = my_list->next;
+	}
+}
+
+ft_lstlast 
+
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	new->next = *lst;
+	*lst = new;
+}
+
+#include <stdio.h>
+#include <stdlib.h>
+int	main(void)
+{
+	// creation de la liste et des elements;
+	t_list	*my_list;
+	t_list	*element1;
+	t_list	*element2;
+	t_list	*element3;
+	t_list	*element4;
+	t_list	*ptr_last_element;
+	
+	my_list = NULL;
+	// allocation memoire pour les elements
+	element1 = (t_list *)malloc(sizeof(t_list));
+	element2 = (t_list *)malloc(sizeof(t_list));
+	element3 = (t_list *)malloc(sizeof(t_list));
+	element4 = (t_list *)malloc(sizeof(t_list));
+
+	// inserer du contenu dans les elements
+	element1->content = "arthur";
+	element2->content = "benoit";
+	element3->content = "cedric";
+	element4->content = "damien";
+	
+	// add elements in the list	
+	ft_lstadd_front(&my_list, element1);
+	ft_lstadd_front(&my_list, element2);
+	ft_lstadd_front(&my_list, element3);
+	ft_lstadd_front(&my_list, element4);
+
+	ptr_last_element = ft_lstlast(my_list);
+	if(ptr_last_element)
+	{
+		printf("le dernier element est : %s", (char *)ptr_last_element->content);
+	}
+	free(element1);
+	free(element2);
+	free(element3);
+	free(element4);
+}
+
+ft_lstadd_back 
+
+#include <stdio.h>
+void	print_list(t_list *lst)
+{
+	t_list	*current_element;
+
+	current_element = lst;
+	while (current_element != NULL)
+	{
+		printf("%s\n", (char *)current_element->content);
+		current_element = current_element->next;
+	}
+}
+
+#include <stdlib.h>
+#include <stdio.h>
+int	main(void)
+{
+	t_list	*my_list;
+	t_list	*element1;
+	t_list	*element2;
+	t_list	*element3;
+
+	my_list = NULL;
+	element1 = (t_list *)malloc(sizeof(t_list));
+	element2 = (t_list *)malloc(sizeof(t_list));
+	element3 = (t_list *)malloc(sizeof(t_list));
+	
+	// add content 
+	element1->content = "je suis element1";
+	element2->content = "je suis element2";
+	element3->content = "je suis element3";
+	ft_lstadd_back(&my_list, element1);
+	ft_lstadd_back(&my_list, element2);
+	ft_lstadd_back(&my_list, element3);
+	print_list(my_list);
+	if (my_list != NULL)
+	{
+		t_list	*last_element;
+
+		last_element = my_list;
+		while (last_element->next != NULL)
+		{
+			last_element = last_element->next;
+		}
+		printf("je suis l'element en fin de liste%s\n", (char *)last_element->content);
+	}
+	free(element1);
+	free(element2);
+	free(element3);
+}
+
+ft_lstdelone 
+
+
+#include "libft.h"
+#include <stdlib.h>
+
+unsigned int	ft_strlen(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strdup(const char *s1)
+{
+	char		*tab;
+	int			i;
+
+	i = 0;
+	tab = (char *)malloc(sizeof(char) * ft_strlen(s1) + 1);
+	if (tab)
+	{
+		while (s1[i])
+		{
+			tab[i] = s1[i];
+			i++;
+		}
+		tab[i] = '\0';
+	}
+	return (tab);
+}
+
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+	if (!lst || !del)
+		return ;
+	del(lst->content);
+	free(lst);
+}
+
+#include <stdio.h>
+
+int	main(void)
+{
+	t_list *ptr_my_lst;
+
+	ptr_my_lst = (t_list *)malloc(sizeof(t_list));
+	
+	ptr_my_lst->content = ft_strdup("salut");
+	//ft_lstdelone(ptr_my_lst, free);
+	printf("%s", (char *)ptr_my_lst->content);
+}
+
+ft_lstclear 
+
+
+#include "libft.h"
+#include <stdlib.h>
+unsigned int	ft_strlen(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strdup(const char *s1)
+{
+	char		*tab;
+	int			i;
+
+	i = 0;
+	tab = (char *)malloc(sizeof(char) * ft_strlen(s1) + 1);
+	if (tab)
+	{
+		while (s1[i])
+		{
+			tab[i] = s1[i];
+			i++;
+		}
+		tab[i] = '\0';
+	}
+	return (tab);
+}
+
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*ptr_last_element;
+
+	ptr_last_element = *lst;
+	if (*lst == NULL)
+	{
+		*lst = new;
+		new->next = NULL;
+		return ;
+	}
+	while (ptr_last_element->next != NULL)
+	{
+		ptr_last_element = ptr_last_element->next;
+	}
+	ptr_last_element->next = new;
+	new->next = NULL;
+}
+
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+	if (!lst || !del)
+		return ;
+	del(lst->content);
+	free(lst);
+}
+
+
+void	ft_lstclear(t_list **lst, void (*del)(void *))
+{
+	t_list	*ptr;
+
+	if (!*lst || !del)
+		return ;
+	ptr = *lst;
+	while (ptr->next != NULL)
+	{
+		ptr = ptr->next;
+		ft_lstdelone(*lst, del);
+		*lst = ptr;
+	}
+	free(ptr);
+}
+#include <stdio.h>
+void print_fruit_list(t_list *head)
+{
+    t_list *current = head;
+    while (current != NULL)
+    {
+        printf("%s\n", (char *)current->content);
+        current = current->next;
+    }
+}
+#include <stdio.h>
+int	main(void)
+{
+	t_list	*my_list;
+	t_list	*element1;
+	t_list	*element2;
+
+	my_list = NULL;
+
+	element1 = (t_list *)malloc(sizeof(t_list));
+	element2 = (t_list *)malloc(sizeof(t_list));
+	element1->content= ft_strdup("bonjour les amis ");
+	element2->content = ft_strdup("hello 2");
+	ft_lstadd_back(&my_list, element1);
+	ft_lstadd_back(&my_list, element2);
+	/*
+	t_list *current;
+
+	current = my_list;
+	while (current != NULL)
+	{
+		printf("%s\n", (char *)current->content);
+		current = current->next;
+	}
+	*/
+	print_fruit_list(my_list);
+	ft_lstclear(&my_list, free);
+}
+
+ft_lstiter 
+
+#include "libft.h"
+
+unsigned int	ft_strlen(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strdup(const char *s1)
+{
+	char		*tab;
+	int			i;
+
+	i = 0;
+	tab = (char *)malloc(sizeof(char) * ft_strlen(s1) + 1);
+	if (tab)
+	{
+		while (s1[i])
+		{
+			tab[i] = s1[i];
+			i++;
+		}
+		tab[i] = '\0';
+	}
+	return (tab);
+}
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*ptr_last_element;
+
+	ptr_last_element = *lst;
+	if (*lst == NULL)
+	{
+		*lst = new;
+		new->next = NULL;
+		return ;
+	}
+	while (ptr_last_element->next != NULL)
+	{
+		ptr_last_element = ptr_last_element->next;
+	}
+	ptr_last_element->next = new;
+	new->next = NULL;
+}
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	if (!lst || !f)
+		return ;
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
+}
+
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+	if (!lst || !del)
+		return ;
+	del(lst->content);
+	free(lst);
+}
+
+void	ft_lstclear(t_list **lst, void (*del)(void *))
+{
+	t_list	*ptr;
+
+	if (!*lst || !del)
+		return ;
+	while (*lst)
+	{
+		ptr = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = ptr;
+	}
+}
+#include <stdio.h>
+
+void	print_element(void *content)
+{
+	if (!content)
+		return ;
+	printf("%s\n", (char *)content);
+}
+int	main(void)
+{
+	t_list	*my_list;
+	t_list	*element1;
+	t_list	*element2;
+
+	my_list = NULL;
+	element1 = (t_list *)malloc(sizeof(t_list));
+	element2 = (t_list *)malloc(sizeof(t_list));
+
+	element1->content = ft_strdup("je suis 1");
+	element2->content = ft_strdup("je suis 2");
+
+	ft_lstadd_back(&my_list, element1);
+	ft_lstadd_back(&my_list, element2);
+	ft_lstiter(my_list, print_element);	
+	ft_lstclear(&my_list, free);
+	
+}
+
+DIVERS MAIN 
+
+void print_fruit_list(t_list *head)
+{
+    t_list *current = head;
+    while (current != NULL)
+    {
+        printf("%s\n", (char *)current->content);
+        current = current->next;
+    }
+}
+
+
