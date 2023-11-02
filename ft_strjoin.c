@@ -3,25 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tebandam <tebandam@student.42angouleme.fr  +#+  +:+       +#+        */
+/*   By: tebandam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 07:43:10 by tebandam          #+#    #+#             */
-/*   Updated: 2023/10/27 08:28:45 by tebandam         ###   ########.fr       */
+/*   Created: 2023/10/30 12:24:37 by tebandam          #+#    #+#             */
+/*   Updated: 2023/11/02 13:49:02 by tebandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
-
-unsigned int	ft_strlen(const char *str)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

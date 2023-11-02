@@ -3,58 +3,68 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tebandam <tebandam@student.42angouleme.fr  +#+  +:+       +#+        */
+/*   By: tebandam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 08:10:14 by tebandam          #+#    #+#             */
-/*   Updated: 2023/10/27 17:51:42 by tebandam         ###   ########.fr       */
+/*   Created: 2023/10/31 08:04:31 by tebandam          #+#    #+#             */
+/*   Updated: 2023/11/02 13:57:13 by tebandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-static int	ft_digit_count(long int i)
+static size_t	search_leng(int n)
 {
-	int	count;
+	size_t	len;
 
-	count = 0;
-	if (i < 0)
+	len = 0;
+	if (n == 0)
+		return (1);
+	if (n < 0)
+		len++;
+	while (n)
 	{
-		i *= -1;
-		count++;
+		n = n / 10;
+		len++;
 	}
-	while (i > 0)
+	return (len);
+}
+
+static void	fill_str(char *str, int n, size_t len)
+{
+	size_t	i;
+
+	str[len] = '\0';
+	i = 0;
+	if (n < 0)
 	{
-		i /= 10;
-		count++;
+		str[0] = '-';
+		i = 1;
 	}
-	return (count);
+	while (len > i)
+	{
+		len--;
+		if (n < 0)
+		{
+			str[len] = n % 10 * (-1) + '0';
+			n = n / 10;
+		}
+		else
+		{
+			str[len] = n % 10 + '0';
+			n = n / 10;
+		}
+	}	
 }
 
 char	*ft_itoa(int n)
 {
-	char		*str;
-	int			i;
-	long int	nb;
+	char	*str;
+	size_t	len;
 
-	nb = n;
-	i = ft_digit_count(nb);
-	str = malloc(i * sizeof(char) + 1);
-	str[i--] = 0;
-	if (nb == 0)
-	{
-		str = ft_calloc(2, sizeof(char));
-		str[0] = 48;
-	}
-	if (nb < 0)
-	{
-		str[0] = '-';
-		nb = nb * -1;
-	}
-	while (nb > 0)
-	{
-		str[i--] = nb % 10 + '0';
-		nb = nb / 10;
-	}
+	len = search_leng(n);
+	str = malloc(sizeof(char) * len + 1);
+	if (!str)
+		return (NULL);
+	fill_str(str, n, len);
 	return (str);
 }

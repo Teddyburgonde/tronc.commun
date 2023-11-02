@@ -3,20 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tebandam <tebandam@student.42angouleme.fr  +#+  +:+       +#+        */
+/*   By: tebandam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 22:59:22 by tebandam          #+#    #+#             */
-/*   Updated: 2023/10/27 12:26:02 by tebandam         ###   ########.fr       */
+/*   Created: 2023/10/30 12:22:41 by tebandam          #+#    #+#             */
+/*   Updated: 2023/11/02 13:45:51 by tebandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
 
-	ptr = calloc(count, size);
+	ptr = malloc(count * size);
+	if (ptr)
+		ft_memset(ptr, '\0', count * size);
 	return (ptr);
 }

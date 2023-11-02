@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tebandam <tebandam@student.42angouleme.fr  +#+  +:+       +#+        */
+/*   By: tebandam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 07:50:01 by tebandam          #+#    #+#             */
-/*   Updated: 2023/10/27 17:36:10 by tebandam         ###   ########.fr       */
+/*   Created: 2023/10/30 12:25:28 by tebandam          #+#    #+#             */
+/*   Updated: 2023/11/02 13:52:46 by tebandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 int	ft_separator(char c, char charset)
 {
@@ -59,7 +58,7 @@ char	*ft_strdup_edit(const char *str, char charset)
 	return (word);
 }
 
-char	**ft_split(const char *str, char c)
+char	**ft_split(const char *s, char c)
 {
 	char	**tab;
 	int		i;
@@ -67,16 +66,18 @@ char	**ft_split(const char *str, char c)
 
 	i = 0;
 	j = 0;
-	tab = malloc(sizeof(char *) * (wd_count_words(str, c) + 1));
-	while (str[i])
+	tab = malloc(sizeof(char *) * (wd_count_words(s, c) + 1));
+	if (!tab)
+		return (NULL);
+	while (s[i])
 	{
-		while (str[i] && ft_separator(str[i], c))
+		while (s[i] && ft_separator(s[i], c))
 			i++;
-		if (str[i] && !ft_separator(str[i], c))
+		if (s[i] && !ft_separator(s[i], c))
 		{
-			tab[j] = ft_strdup_edit(&str[i], c);
+			tab[j] = ft_strdup_edit(&s[i], c);
 			j++;
-			while (str[i] && !ft_separator(str[i], c))
+			while (s[i] && !ft_separator(s[i], c))
 			i++;
 		}
 	}

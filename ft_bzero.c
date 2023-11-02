@@ -3,25 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tebandam <tebandam@student.42angouleme.fr  +#+  +:+       +#+        */
+/*   By: tebandam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 22:53:27 by tebandam          #+#    #+#             */
-/*   Updated: 2023/10/26 22:53:32 by tebandam         ###   ########.fr       */
+/*   Created: 2023/10/30 12:12:20 by tebandam          #+#    #+#             */
+/*   Updated: 2023/11/02 11:04:11 by tebandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t		i;
-	char		*tab;
-
-	tab = s;
-	i = 0;
-	while (i < n)
-	{
-		tab[i] = '\0';
-		i++;
-	}
+	ft_memset(s, '\0', n);
 }

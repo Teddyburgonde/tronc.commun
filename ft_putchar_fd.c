@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tebandam <tebandam@student.42angouleme.fr  +#+  +:+       +#+        */
+/*   By: tebandam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 07:50:27 by tebandam          #+#    #+#             */
-/*   Updated: 2023/10/27 07:50:30 by tebandam         ###   ########.fr       */
+/*   Created: 2023/10/30 12:27:43 by tebandam          #+#    #+#             */
+/*   Updated: 2023/11/02 14:00:55 by tebandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

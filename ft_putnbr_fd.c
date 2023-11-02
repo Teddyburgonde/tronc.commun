@@ -3,20 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tebandam <tebandam@student.42angouleme.fr  +#+  +:+       +#+        */
+/*   By: tebandam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 08:13:49 by tebandam          #+#    #+#             */
-/*   Updated: 2023/10/27 08:13:52 by tebandam         ###   ########.fr       */
+/*   Created: 2023/10/30 12:41:14 by tebandam          #+#    #+#             */
+/*   Updated: 2023/11/02 14:05:24 by tebandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
-
-void	ft_putchar_fd(char c, int fd)
-{
-	write (fd, &c, 1);
-}
 
 void	ft_putnbr_fd(int n, int fd)
 {

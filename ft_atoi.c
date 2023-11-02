@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tebandam <tebandam@student.42angouleme.fr  +#+  +:+       +#+        */
+/*   By: tebandam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 22:40:50 by tebandam          #+#    #+#             */
-/*   Updated: 2023/10/26 22:40:55 by tebandam         ###   ########.fr       */
+/*   Created: 2023/10/30 12:21:59 by tebandam          #+#    #+#             */
+/*   Updated: 2023/10/30 12:22:01 by tebandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_whitespace(char c)
+static int	is_whitespace(char c)
 {
 	if ((c >= 9 && c <= 13) || c == 32)
 		return (1);

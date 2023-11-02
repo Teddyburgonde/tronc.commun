@@ -3,23 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tebandam <tebandam@student.42angouleme.fr  +#+  +:+       +#+        */
+/*   By: tebandam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 11:58:18 by tebandam          #+#    #+#             */
-/*   Updated: 2023/10/27 11:58:21 by tebandam         ###   ########.fr       */
+/*   Created: 2023/10/30 13:05:24 by tebandam          #+#    #+#             */
+/*   Updated: 2023/11/02 14:01:38 by tebandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_list {
 	void				*content;
 	struct s_list		*next;
 }	t_list;
 unsigned int			ft_strlen(const char *str);
-void					*ft_memset(void *s, int c, unsigned int n);
+void					*ft_memset(void *s, int c, size_t n);
 void					*ft_memcpy(void *dest, const void *src, size_t n);
 size_t					ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t					ft_strlcat(char *dst, const char *src, size_t dstsize);

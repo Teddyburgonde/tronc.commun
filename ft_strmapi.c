@@ -3,25 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tebandam <tebandam@student.42angouleme.fr  +#+  +:+       +#+        */
+/*   By: tebandam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 23:13:21 by tebandam          #+#    #+#             */
-/*   Updated: 2023/10/27 08:07:36 by tebandam         ###   ########.fr       */
+/*   Created: 2023/10/30 12:26:36 by tebandam          #+#    #+#             */
+/*   Updated: 2023/11/02 13:57:50 by tebandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
-
-unsigned int	ft_strlen(const char *str)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
 
 char	change(unsigned int i, char c)
 {

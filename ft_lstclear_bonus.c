@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tebandam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 12:25:03 by tebandam          #+#    #+#             */
-/*   Updated: 2023/11/02 13:49:22 by tebandam         ###   ########.fr       */
+/*   Created: 2023/10/30 12:56:21 by tebandam          #+#    #+#             */
+/*   Updated: 2023/11/02 14:32:47 by tebandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(const char *s1, const char *set)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	int	i;
-	int	len;
+	t_list	*ptr;
 
-	i = 0;
-	if (!s1 || !set)
-		return (NULL);
-	while (s1[i] && ft_strchr(set, s1[i]))
-		i++;
-	len = ft_strlen(s1);
-	while (len > i && ft_strchr(set, s1[len - 1]))
-			len--;
-	return (ft_substr(s1, i, len - i));
+	if (!*lst || !del)
+		return ;
+	while (*lst)
+	{
+		ptr = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = ptr;
+	}
 }
